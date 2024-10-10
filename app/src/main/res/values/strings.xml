@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="open_second_screen">Open Second Screen</string>
+    <string name="this_is_second_screen">This is second screen</string>
 </resources>
