@@ -96,19 +96,18 @@ fun LoginForm(modifier: Modifier = Modifier) {
 
         )
         if (passwordError != null) {
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(15.dp))
             Text(
                 text = passwordError ?: "",
                 color = Color.Red,
                 style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(start = 16.dp)
+
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             text = "I Don't have an account",
-
             fontSize = 12.sp,
             color = Color.Black.copy(alpha = 0.6f)
         )
