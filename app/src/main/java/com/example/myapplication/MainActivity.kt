@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -12,6 +13,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import java.util.regex.Pattern
@@ -36,6 +38,7 @@ class MainActivity : ComponentActivity() {
 fun LoginForm(modifier: Modifier = Modifier) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
     var emailError by remember { mutableStateOf<String?>(null) }
     var passwordError by remember { mutableStateOf<String?>(null) }
 
@@ -50,7 +53,13 @@ fun LoginForm(modifier: Modifier = Modifier) {
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
+        Text (
+            text = "Welcome back",
+            fontSize = 30.sp,
+            fontWeight = FontWeight.Bold,
 
+        )
+        Spacer(modifier = Modifier.height(60.dp))
         TextField(
             value = email,
             onValueChange = {
@@ -118,8 +127,8 @@ fun LoginForm(modifier: Modifier = Modifier) {
                     }
                 }
             },
-            modifier = Modifier.fillMaxWidth()
-
+            modifier = Modifier.fillMaxWidth(),
+            enabled = email.isNotEmpty() && password.isNotEmpty()
         ) {
             Text("Submit")
         }
